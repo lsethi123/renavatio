@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  height: 9.99
+  weight: 9.99
+  bp1: 1
+  bp2: 1
+  temperature: 9.99
+  pulse: 1
+  respiratory_rate: 1
+
+two:
+  height: 9.99
+  weight: 9.99
+  bp1: 1
+  bp2: 1
+  temperature: 9.99
+  pulse: 1
+  respiratory_rate: 1

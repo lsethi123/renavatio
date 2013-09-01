@@ -1,0 +1,16 @@
+<% cols = Patient.columns_hash.keys.map{|p| p.to_s.camelcase } %>
+<% display_columns = Patient.columns_hash.keys.map{|p| p } %>
+<% cols = cols.map{|c| c.split.join(" ")} %>
+<% patient = Patient.new() %>
+
+<%= render :partial => "shared/index",
+  :locals => {
+    :heading => cols,
+    :object => @patients,
+    :columns => display_columns,
+    :title => "Patients",
+    :model_object => patient
+  }
+%>
+
+<%= render :partial => "shared/subnav", :locals => { :specific => @specific } %>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Renavatio</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="container">
+		<div class="account_section">
+			<% if logged_in? -%>
+				<div id="profile-nav" class="pull-right">Welcome <%= session[:name] %> <%= link_to "Logout", logout_path %></div>
+			<% end %>
+		</div>
+		<% if logged_in? -%>
+			<div class="navigation">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<ul class="nav">
+							<li><a href="#">Home</a></li>
+							<div class="btn-group">
+	              <li class = "btn dropdown-toggle" data-toggle = "dropdown"><%= link_to "Patients", patients_path %>&nbsp;&nbsp<span class="caret"></span></a></li>
+	              <ul class="dropdown-menu">
+	                <li><%= link_to "New Patient", new_patient_path %></li>
+	                <li><%= link_to "View All Patients", patients_path %></a></li>
+	              </ul>
+	            	</div>
+							<li><%= link_to "Staff", staffs_path %></a></li>
+							<li><a href="#">Link</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+				<div class="sidebar">
+					<div class="accordion_area">
+						<div class="accordion" id="accordion2">
+							<div class="accordion-group">
+								<div class="accordion-heading">
+									<div class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+										Patient Options
+									</div>
+								</div>
+								<div id="collapseOne" class="accordion-body collapse in">
+									<div class="accordion-inner">
+										<% if @patient %>
+											<%= link_to "Create New Visit", new_visit_path(:patient => @patient) %>
+										<% else %>
+											<%= link_to "View All Patients", patients_path %>
+										<% end %>
+									</div>
+								</div>
+							</div>
+							<div class="accordion-group">
+								<div class="accordion-heading">
+									<div class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+										Staff Options
+									</div>
+								</div>
+									<% if @staff %>
+										<div id="collapseTwo" class="accordion-body collapse in">
+											<div class="accordion-inner">
+												<%= link_to "Add New Staff Member", new_staff_path %>
+											</div>
+										</div>
+										<div id="collapseTwo" class="accordion-body collapse in">
+											<div class="accordion-inner">
+												<%= link_to "Add New Staff Member", new_staff_path %>
+											</div>
+										</div>
+									<% else %>
+										<div id="collapseTwo" class="accordion-body collapse in">
+											<div class="accordion-inner">
+												<%= link_to "Add New Staff Member", new_staff_path %>
+											</div>
+										</div>
+									<% end %>
+							</div>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		<div class="body">
+			<%= yield %>
+		</div>
+	</div>
+</body>
+</html>

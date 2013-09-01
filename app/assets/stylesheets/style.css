@@ -1,0 +1,31 @@
+.container {
+	width: 100%;
+}
+
+.navigation {
+	background: url('/assets/top.jpg');
+	height: 100px;
+	margin-bottom: 25px;
+}
+
+.navbar {
+	position: relative;
+	top: 75px;
+}
+
+.sidebar {
+	width: 20%;
+	float: left;
+	background: #E7FEFF;
+	height: 100%;
+}
+.body {
+	width: 75%;
+	float: right;
+	background: url('/assets/body.jpg') no-repeat;
+}
+
+#accordion {
+	position: relative;
+	top: 75px;
+}

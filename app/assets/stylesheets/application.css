@@ -1,0 +1,90 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree
+ *//*.
+ require bootstrap
+ require bootstrap-wysihtml5
+ */
+
+.accordion_area {
+	background: white;
+}
+
+#side-nav-toggle {
+	background: gray;
+	position: absolute;
+	top: 120px;
+  height: 100%;
+	bottom: 56px;
+	right: 0;
+	cursor: e-resize;
+	float: right;
+	width: 10px;
+	display: block;
+}
+
+#side-nav-toggle.hover {
+  background: #BFBFBF;
+  border-right: 1px solid #969696;
+}
+#side-nav-toggle.expanded {
+  right:201px;
+  background: -moz-linear-gradient(left,  rgba(221,221,221,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(221,221,221,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  rgba(221,221,221,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  rgba(221,221,221,1) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  rgba(221,221,221,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+  background: linear-gradient(to right,  rgba(221,221,221,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+  border-right: 0;
+  cursor: e-resize;
+}
+#side-nav-toggle.expanded.hover {
+  background: -moz-linear-gradient(left,  rgba(147,147,147,1) 0%, rgba(147,147,147,0.99) 1%, rgba(147,147,147,0) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(147,147,147,1)), color-stop(1%,rgba(147,147,147,0.99)), color-stop(100%,rgba(147,147,147,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  rgba(147,147,147,1) 0%,rgba(147,147,147,0.99) 1%,rgba(147,147,147,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  rgba(147,147,147,1) 0%,rgba(147,147,147,0.99) 1%,rgba(147,147,147,0) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  rgba(147,147,147,1) 0%,rgba(147,147,147,0.99) 1%,rgba(147,147,147,0) 100%); /* IE10+ */
+  background: linear-gradient(to right,  rgba(147,147,147,1) 0%,rgba(147,147,147,0.99) 1%,rgba(147,147,147,0) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#939393', endColorstr='#00939393',GradientType=1 ); /* IE6-9 */
+}
+
+.side-nav{
+  display: none;
+  position:absolute;
+  right: 0;
+  width:200px;
+	top: 120px;
+  height: 100%;
+	bottom: 56px;
+  background-color:white;
+  z-index:11;
+  -webkit-box-shadow: 1px 0 6px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 1px 0 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 0 6px rgba(0, 0, 0, 0.15);
+  border-right:1px solid #ccc;
+  background-image: -moz-linear-gradient(10% 30%, #FFFFFF, #F7F7F7);
+  background-image: -ms-linear-gradient(10% 30%, #FFFFFF, #F7F7F7);
+  background-image: -webkit-gradient(linear, 0 0, 10% 30%, from(#FFFFFF), to(#F7F7F7));
+  background-image: -webkit-linear-gradient(10% 30%, #FFFFFF, #F7F7F7);
+  background-image: -o-linear-gradient(10% 30%, #FFFFFF, #F7F7F7);
+  background-image: linear-gradient(10% 30%, #FFFFFF, #F7F7F7);
+}
+
+.side-nav.expanded {
+  display: block;
+}
+
+.index-table {
+	width: 95%;
+
+}

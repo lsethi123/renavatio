@@ -1,0 +1,5 @@
+$('body').html("
+	<h1><%= escape_javascript(@patient.firstname) %></h1>
+").append("
+	<h1><%= escape_javascript(@patient.lastname) %></h1>
+")

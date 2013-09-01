@@ -1,0 +1,4 @@
+<% specific = specific rescue nil %>
+<% specific = display_specific(specific) unless specific.blank? %>
+
+$(".side-nav").html("<%= escape_javascript(render specific) %>")
