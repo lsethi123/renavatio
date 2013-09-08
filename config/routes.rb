@@ -4,13 +4,12 @@ Renavatio::Application.routes.draw do
 
   resources :staffs
 
-  resources :visits
-
-
   resources :admins
 
 
-  resources :patients
+  resources :patients do
+    resources :visits
+  end
 
 
   match '/login' => 'sessions#new'

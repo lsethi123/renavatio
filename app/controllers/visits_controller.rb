@@ -24,10 +24,9 @@ class VisitsController < ApplicationController
   # GET /visits/new
   # GET /visits/new.json
   def new
-    @staffs = []
-    @patient = Patient.find(params[:patient])
     @visit = Visit.new
-    @staffs = Staff.all
+    @patients = Patient.all.collect{|pat| ["#{pat.firstname} #{pat.lastname}", pat.id]}
+    @staffs = Staff.all.collect{|emp| ["#{emp.firstname} #{emp.lastname}", emp.id]}
     # staffs.each do |staff|
     #   staffs << ["#{staff.firstname} #{staff.lastname}", staff.id]
     # end

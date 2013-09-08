@@ -1,21 +1,15 @@
-<h1>Listing staffs</h1>
+<% cols = Staff.columns_hash.keys.map{|p| p.to_s.camelcase } %>
+<% display_columns = Staff.columns_hash.keys.map{|p| p } %>
+<% cols = cols.map{|c| c.split.join(" ")} %>
+<% staff = Staff.new() %>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @staffs.each do |staff| %>
-  <tr>
-    <td><%= link_to 'Show', staff %></td>
-    <td><%= link_to 'Edit', edit_staff_path(staff) %></td>
-    <td><%= link_to 'Destroy', staff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Staff', new_staff_path %>
+<%= render :partial => "shared/index",
+  :locals => {
+    :heading => cols,
+    :object => @staffs,
+    :columns => display_columns,
+    :title => "Staff",
+    :model_object => staff,
+    :new_path => new_staff_path
+  }
+%>

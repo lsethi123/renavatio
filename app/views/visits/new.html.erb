@@ -1,6 +1,6 @@
 <h1>New visit</h1>
 
-<%= form_for(@visit) do |f| %>
+<%= form_tag patient_visits_path, :method => :post, :class => "form-horizontal" do |f| %>
   <% if @visit.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@visit.errors.count, "error") %> prohibited this visit from being saved:</h2>
@@ -12,37 +12,21 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    Patient Name: <%= "#{@patient.firstname} #{@patient.lastname}" %><br />
-    Birthday: <%= @patient.birthday %><br />
-    Age: <%= @patient.age %>
-  </div>
 
-  <div class="field">
-    <%= f.label :type_of %><br />
-    <%= select_tag "typelist", "<option value=''>Please select an option</option><option value='1'>Consultation</option><option value='2'>Progress Note</option><option value='3'>Injection Session</option>".html_safe %>
-  </div>
-  <div class="field">
-    <%= select_tag("stafflist", options_from_collection_for_select(@staffs, "id", "firstname" "lastname")) %>
-  </div>
-  <div class="field">
-    <%= f.label :date_of %><br />
-    <%= f.text_field :date_of %>
-  </div>
+  <div class="span6">
+    <div class="field">
+      <%= select_tag "typelist", "<option value=''>Please select an option</option><option value='1'>Consultation</option><option value='2'>Progress Note</option><option value='3'>Injection Session</option>".html_safe %>
+    </div>
+    <div class="field">
+      <%= select_tag("patients", options_for_select(@patients)) %>
+    </div>
+    <div class="field">
+      <%= select_tag("staffs", options_for_select(@staffs)) %>
+    </div>
 
-      t.integer :staff_id
-      t.integer :vital_signs_id
-      t.text :chief_complaint
-      t.text :plan
-      t.text :assessment
-      t.integer :scan_record_id
-      t.integer :review_of_systems_id
-      t.date :date_of
-
-  <div class="actions">
-    <%= f.submit %>
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Create</button>
+      <%= link_to 'Back', patient_visits_path, :class => "btn" %>
+    </div>
   </div>
 <% end %>
-
-
-<%= link_to 'Back', visits_path %>

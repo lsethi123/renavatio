@@ -1,3 +1,11 @@
+<% heading = heading rescue nil %>
+<% object = object rescue nil %>
+<% columns = columns rescue nil %>
+<% title = title rescue nil %>
+<% model_object = model_object rescue nil %>
+<% new_path = new_path rescue nil %>
+<% options = options rescue nil %>
+
 <div class="index-table">
   <div class="page-header">
     <h1><%= title %></h1>
@@ -20,15 +28,9 @@
             <td><%= item.send(col) %></td>
           <% end %>
           <td>
-            <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                        edit_patient_path(item), :class => 'btn btn-mini' %>
-            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                        patient_path(item),
-                        :method => :delete,
-                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                        :class => 'btn btn-mini btn-danger' %>
-
-            <button class="btn btn-mini" id="side-selected" value="<%= id %>">View on Side Bar</button>
+            <% unless options.blank? %>
+              <%= self.send(options.to_sym, item) %>
+            <% end %>
           </td>
         </tr>
       <% end %>
@@ -36,40 +38,7 @@
   </table>
 
   <%= link_to t('.new', :default => t("helpers.links.new")),
-              new_patient_path,
+              new_path,
               :class => 'btn btn-primary' %>
 </div>
-
-<div id="side-nav-toggle">&nbsp;</div>
-<div class="side-nav">
-  <% specific = specific rescue nil %>
-  <% specific = display_specific(specific) unless specific.blank? %>
-  <%= specific %>
-</div>
-
-<script>
-  $(document).ready(function(){
-    $("#side-selected").off().on("click", function(){
-      var id = $(this).val();
-      $.ajax({
-          type: "GET",
-          url: "<%= patients_path %>",
-          data: {'selected_id': id},
-          error: function(e){
-            e.preventDefault();
-          },
-          success: function(html){
-            $(".side-nav").append(html);
-            $("#side-nav-toggle").addClass("expanded");
-            $(".side-nav").addClass("expanded");
-          },
-          complete: function(){
-          }
-      });
-    });
-
-    $('#side-nav-toggle').click()
-  });
-</script>
-
 

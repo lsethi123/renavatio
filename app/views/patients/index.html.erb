@@ -9,8 +9,8 @@
     :object => @patients,
     :columns => display_columns,
     :title => "Patients",
-    :model_object => patient
+    :model_object => patient,
+    :new_path => new_patient_path,
+    :options => "create_patient_options"
   }
 %>
-
-<%= render :partial => "shared/subnav", :locals => { :specific => @specific } %>
