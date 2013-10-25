@@ -1,0 +1,7 @@
+<%= render :partial => "shared/collections",
+  :locals => {
+    :collection => create_collections(@patients, "generate_new_patient"),
+    :columns => ["Id", "Name", "Birthday", "CreatedAt", "UpdatedAt"],
+    :options => "create_patient_options"
+  }
+%>

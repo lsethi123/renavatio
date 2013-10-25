@@ -5,4 +5,6 @@ class Patient < ActiveRecord::Base
   has_many :staff, through: :visits
 
   belongs_to :account
+
+  validates :firstname, :lastname, presence: true
 end

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.14'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -14,9 +14,11 @@ gem 'jquery-rails'
 gem 'mysql2'
 gem 'therubyracer'
 gem 'less-rails'
-gem 'twitter-bootstrap-rails'
+# gem 'twitter-bootstrap-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'chosen-rails'
+gem 'rspec-rails'
+gem 'simplecov', :require => false, :group => :test
 # gem 'jquery-ui-bootstrap-rails'
 # gem 'Wijmo'
 # gem 'bootstrap-wysihtml5-rails'

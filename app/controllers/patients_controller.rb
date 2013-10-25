@@ -2,13 +2,8 @@ class PatientsController < ApplicationController
   # GET /patients
   # GET /patients.json
   def index
-    params[:selected_id] ? @specific = Patient.find(params[:selected_id]) : @specific = []
     @patients = Patient.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json {render json: @patients}
-    end
+    render :template => "shared/template"
   end
 
   # GET /patients/1

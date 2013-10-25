@@ -1,0 +1,11 @@
+<% path = @path.blank? ? "#{params[:controller]}/#{params[:action]}" : @path %>
+
+<% sidebar_path = @sidebar_path.blank? ? "#{params[:controller]}/sidebar_#{params[:action]}" : @sidebar_path %>
+
+<div class="side-nav">
+	<%= render :partial => sidebar_path %>
+</div>
+
+<div class="content-space">
+	<%= render :partial => path %>
+</div>

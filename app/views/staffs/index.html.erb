@@ -3,13 +3,10 @@
 <% cols = cols.map{|c| c.split.join(" ")} %>
 <% staff = Staff.new() %>
 
-<%= render :partial => "shared/index",
+<%= render :partial => "shared/collections",
   :locals => {
-    :heading => cols,
-    :object => @staffs,
-    :columns => display_columns,
-    :title => "Staff",
-    :model_object => staff,
-    :new_path => new_staff_path
+    :collection => create_collections(@staffs, "generate_new_staff"),
+    :columns => ["Id", "Name", "Email", "Title", "Administrator", "CreatedAt", "UpdatedAt"],
+    :options => "create_staff_options"
   }
 %>

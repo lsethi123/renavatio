@@ -5,16 +5,16 @@
 
 	<%= form_tag ('/auth') do %>
 		<legend>Please Log In</legend>
-		<div class="control-group">
+		<div class="form-group">
 			<%= label_tag :email, 'Name:', :class => "control-label", :for => "inputEmail" %>
-			<div class="controls">
-				<%= text_field_tag :email, params[:email], :id => "inputEmail", :placeHolder => "Email" %>
+			<div class="col-lg-5 col-md-6">
+				<%= text_field_tag :email, params[:email], :id => "inputEmail", :placeHolder => "Email", :class => "form-control" %>
 			</div>
 		</div>
-		<div class="control-group">
+		<div class="form-group">
 			<%= label_tag :password, 'Name:', :class => "control-label", :for => "inputPassword" %>
-			<div class="controls">
-				<%= password_field_tag :password, params[:password], :id => "inputPassword", :placeHolder => "Password" %>
+			<div class="col-lg-5 col-md-6">
+				<%= password_field_tag :password, params[:password], :id => "inputPassword", :placeHolder => "Password", :class => "form-control" %>
 			</div>
 		</div>
 		<div>

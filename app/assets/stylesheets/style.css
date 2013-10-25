@@ -17,15 +17,10 @@
 	width: 20%;
 	float: left;
 	background: #E7FEFF;
-	height: 100%;
-}
-.body {
-	width: 75%;
-	float: right;
-	background: url('/assets/body.jpg') no-repeat;
+	height: 500px;
 }
 
-#accordion {
-	position: relative;
-	top: 75px;
+.content-space {
+	width: 80%;
+	margin-left: 10px;
 }

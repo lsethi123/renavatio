@@ -5,4 +5,8 @@ class Staff < ActiveRecord::Base
   has_many :patients, through: :visits
 
   belongs_to :account
+
+  def administrator?
+    administrator == true
+  end
 end

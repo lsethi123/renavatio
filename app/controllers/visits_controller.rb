@@ -84,4 +84,17 @@ class VisitsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+  def set_visit_attestation(visit, date)
+    # testing how to call controller private variable in rspec
+    # visit.attestation_date = date
+    # visit.update_attributes(:attestation_date => date)
+  end
+
+  def verify_visit_attestation(visit)
+    visit.attestation_date?
+  end
+
 end

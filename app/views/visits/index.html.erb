@@ -1,15 +1,7 @@
-<% cols = Visit.columns_hash.keys.map{|p| p.to_s.camelcase } %>
-<% display_columns = Visit.columns_hash.keys.map{|p| p } %>
-<% cols = cols.map{|c| c.split.join(" ")} %>
-<% visit = Visit.new() %>
-
-<%= render :partial => "shared/index",
+<%= render :partial => "shared/collections",
   :locals => {
-    :heading => cols,
-    :object => @visits,
-    :columns => display_columns,
-    :title => "Visits",
-    :model_object => visit,
-    :new_path => new_patient_visit_path
+    :collection => create_collections(@visits, "generate_new_visit"),
+    :columns => ["TypeOf", "ChiefComplaint", "CreatedAt"],
+    :options => "create_visit_options"
   }
 %>

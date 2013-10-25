@@ -1,0 +1,49 @@
+<% collection = collection rescue nil %>
+<% columns = columns rescue nil %>
+<% options = options rescue nil %>
+
+<% cols = collection.first.key_list rescue nil %>
+<% unless cols.blank? %>
+	<% display_columns = columns.select{|c| cols.include?(c)} %>
+<% else %>
+	<% display_columns = columns %>
+<% end %>
+
+<% unless display_columns.blank? %>
+	<% header = display_columns.map{|k| k.to_s.camelcase.split(/(?=[A-Z])/).join(" ") } %>
+<% end %>
+
+<% unless header.blank? %>
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr>
+				<% header.each do |display_column| %>
+					<th>
+						<%= display_column %>
+					</th>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<% unless collection.blank? %>
+				<% collection.each do |item| %>
+					<tr>
+					<% display_columns.each do |display_column| %>
+						<td>
+							<% table_data = item.get(display_column.underscore.gsub(" ", "_").to_sym, :display) %>
+							<%= translate_table_data(display_column, table_data) %>
+						</td>
+					<% end %>
+						<td>
+	            <% unless options.blank? %>
+	              <%= self.send(options.to_sym, item) %>
+	            <% end %>
+	          </td>
+					</tr>
+				<% end %>
+			<% else %>
+				<tr></tr>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>

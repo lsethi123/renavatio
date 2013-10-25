@@ -33,7 +33,7 @@
         </tr>
         <% @patient.visits.each do |visit| %>
           <tr>
-            <td><%= visit.date_of %></td>
+            <td><%= display_time(visit.created_at) %></td>
             <td><%= visit.type_of %></td>
             <td><%= visit.chief_complaint %></td>
           </tr>
