@@ -1,6 +1,7 @@
 <% collection = collection rescue nil %>
 <% columns = columns rescue nil %>
 <% options = options rescue nil %>
+<% options_extra = options_extra rescue nil %>
 
 <% cols = collection.first.key_list rescue nil %>
 <% unless cols.blank? %>
@@ -36,7 +37,11 @@
 					<% end %>
 						<td>
 	            <% unless options.blank? %>
-	              <%= self.send(options.to_sym, item) %>
+	            	<% if options_extra.blank? %>
+	              	<%= self.send(options.to_sym, item) %>
+	            	<% else %>
+	            		<%= self.send(options.to_sym, item, options_extra) %>
+	            	<% end %>
 	            <% end %>
 	          </td>
 					</tr>

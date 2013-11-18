@@ -1,0 +1,23 @@
+<script>
+
+  $(function(){
+
+    jQuery.extend(window, Routes);
+
+    var setupFunction = "setup" + "<%= params[:controller].titleize + params[:action].camelize %>";
+
+    // Run the associated setup function for this controller-action pair if it exists
+    //
+    // The source for this setup function will be found in
+    // 'app/assets/javascripts/controllers/campaigns/add_placement.js.coffee'
+    //
+
+    if (typeof window[setupFunction] != 'undefined') {
+      window[setupFunction]();
+    }
+
+
+
+  });
+
+</script>

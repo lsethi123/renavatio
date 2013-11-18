@@ -4,12 +4,16 @@ module ApplicationHelper
 		render :partial => "shared/subnav", :locals => {:options => options, :block => block}
 	end
 
-	def create_collections(collection, method)
+	def create_collections(collection, method, add_object = "")
 		collection = collection || []
 		new_collection = []
 		collection.each do |item|
-			new_collection << self.send(method.to_sym, item)
-		end
+      unless add_object != ""
+			  new_collection << self.send(method.to_sym, item)
+		  else
+        new_collection << self.send(method.to_sym, item, add_object)
+      end
+    end
 		new_collection
 	end
 
@@ -66,6 +70,16 @@ module ApplicationHelper
       t = Time.parse(time.to_s)
       t.to_s(:display_time)
     end
+  end
+
+  def filter_params(params)
+    filtered_params = []
+    params.each do |key,value|
+      unless value.blank? or value === "25" or value === "1"
+        filtered_params << [key, value, key]
+      end
+    end
+    filtered_params
   end
 
 end

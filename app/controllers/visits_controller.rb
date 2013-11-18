@@ -25,7 +25,7 @@ class VisitsController < ApplicationController
   # GET /visits/new.json
   def new
     @visit = Visit.new
-    @patients = Patient.all.collect{|pat| ["#{pat.firstname} #{pat.lastname}", pat.id]}
+    @patient = Patient.find(params[:patient_id])
     @staffs = Staff.all.collect{|emp| ["#{emp.firstname} #{emp.lastname}", emp.id]}
     # staffs.each do |staff|
     #   staffs << ["#{staff.firstname} #{staff.lastname}", staff.id]
@@ -45,7 +45,7 @@ class VisitsController < ApplicationController
   # POST /visits.json
   def create
     @visit = Visit.new(params[:visit])
-
+    params[:patient_id] = @patient.id
     respond_to do |format|
       if @visit.save
         format.html { redirect_to @visit, notice: 'Visit was successfully created.' }

@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require chosen-jquery
+//= require js-routes
 //= require_tree
 //= //require jquery-ui
 //= //require bootstrap
@@ -25,4 +26,6 @@ $(document).ready(function(){
 // 	});
   //$("#accordion").wijaccordion();
   $(".collapse").collapse();
+
+  jQuery.extend(window, Routes);
 });

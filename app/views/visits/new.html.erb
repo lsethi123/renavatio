@@ -17,13 +17,48 @@
   <div class="form-group">
     <label class="form-label col-lg-offset-2 col-sm-10 col-md-10 col-lg-2" for="typelist">Visit Type</label>
     <div class="col-sm-10 col-md-10 col-lg-4">
-      <%= select_tag("typelist", options_for_select([["Consultation", 1],["Progress Note", 2], ["Injection Session", 3]]), :class => "form-control", :place_holder => "Please select an option").html_safe %>
+      <%= select_tag("typelist", options_for_select([["Consultation", 1],["Progress Note", 2], ["Injection Session", 3]]), :class => "form-control", :place_holder => "Please select an option", :name => "visit[type_of]").html_safe %>
     </div>
   </div>
   <div class="form-group">
     <label class="form-label col-lg-offset-2 col-sm-10 col-md-10 col-lg-2" for="staffs">Staff</label>
     <div class="col-sm-10 col-md-10 col-lg-4">
-      <%= select_tag("staffs", options_for_select(@staffs), :class => "form-control") %>
+      <%= select_tag("staffs", options_for_select(@staffs), :class => "form-control", :name => "visit[staff_id]") %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label col-lg-offset-2 col-sm-10 col-md-10 col-lg-2" for="staffs">Patient Info</label>
+    <div class="col-sm-10 col-md-10 col-lg-4">
+      <%= "#{@patient.firstname} #{@patient.lastname}" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label col-lg-offset-2 col-sm-10 col-md-10 col-lg-2" for="chief_complaint">Chief Complaint</label>
+    <div class="col-sm-10 col-md-10 col-lg-4">
+      <input type="text" class="form-control" name="visit[chief_complaint]" />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label col-lg-offset-2 col-sm-10 col-md-10 col-lg-2" for="plan">Plan</label>
+    <div class="col-sm-10 col-md-10 col-lg-4">
+      <input type="text" class="form-control" name="visit[plan]" />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label col-lg-offset-2 col-sm-10 col-md-10 col-lg-2" for="assessment">Assessment</label>
+    <div class="col-sm-10 col-md-10 col-lg-4">
+      <input type="text" class="form-control" name="visit[assessment]" />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label col-lg-offset-2 col-sm-10 col-md-10 col-lg-2" for="plan">Attestation Date</label>
+    <div class="col-sm-10 col-md-10 col-lg-4">
+      <input type="text" class="form-control" id="attest-date" name="visit[attestation_date]" />
     </div>
   </div>
 
@@ -33,3 +68,5 @@
   </div>
 
 <% end %>
+
+<%= render :partial => "shared/javascript_controller_action" %>
