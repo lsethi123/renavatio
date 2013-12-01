@@ -1,3 +1,5 @@
+require "api"
+
 Renavatio::Application.routes.draw do
   resources :vital_signs
 
@@ -16,6 +18,8 @@ Renavatio::Application.routes.draw do
   match '/auth' => 'sessions#create'
   match '/logout' => 'sessions#destroy'
   match '/specific_patient' => 'patients#specific_patient'
+
+  mount API::API => '/'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
