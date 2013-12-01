@@ -45,10 +45,10 @@ class VisitsController < ApplicationController
   # POST /visits.json
   def create
     @visit = Visit.new(params[:visit])
-    params[:patient_id] = @patient.id
+    @patient_id = params[:patient_id]
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
+        format.html { redirect_to visits, notice: 'Visit was successfully created.' }
         format.json { render json: @visit, status: :created, location: @visit }
       else
         format.html { render action: "new" }
