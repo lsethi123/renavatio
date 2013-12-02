@@ -1,0 +1,7 @@
+<% path = @path.blank? ? "#{params[:controller]}/#{params[:action]}" : @path %>
+
+<div class="content-space">
+	<%= render :partial => path %>
+</div>
+
+<%= render :partial => "shared/javascript_controller_action" %>

@@ -1,0 +1,12 @@
+<div class="sidebar">
+	<div class="list-group">
+		<%= link_to "View All Patients", patients_path, :class => "list-group-item" %>
+		<%= link_to "New Patient", new_patient_path, :class => "list-group-item" %>
+	</div>
+	<% if @staff %>
+		<div class="list-group">
+			<%= link_to "View Entire Staff", staffs_path, :class => "list-group-item" %>
+			<%= link_to "New Staff", new_staff_path, :class => "list-group-item" %>
+		</div>
+	<% end %>
+</div>

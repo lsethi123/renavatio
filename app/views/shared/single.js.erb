@@ -1,0 +1,2 @@
+<% path = @path.blank? ? "#{params[:controller]}/viewports/#{params[:action]}" : @path %>
+$('.content-space').html("<%= escape_javascript( render :partial => path ) %>" );

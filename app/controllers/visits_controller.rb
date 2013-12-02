@@ -3,11 +3,7 @@ class VisitsController < ApplicationController
   # GET /visits.json
   def index
     @visits = Visit.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @visits }
-    end
+    render "shared/template"
   end
 
   # GET /visits/1
@@ -30,26 +26,25 @@ class VisitsController < ApplicationController
     # staffs.each do |staff|
     #   staffs << ["#{staff.firstname} #{staff.lastname}", staff.id]
     # end
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @visit }
-    end
+    render "shared/single"
   end
 
   # GET /visits/1/edit
   def edit
     @visit = Visit.find(params[:id])
+    @patient = Patient.find(params[:patient_id])
+    @staffs = Staff.all.collect{|emp| ["#{emp.firstname} #{emp.lastname}", emp.id]}
+    render "shared/single"
   end
 
   # POST /visits
   # POST /visits.json
   def create
     @visit = Visit.new(params[:visit])
-    @patient_id = params[:patient_id]
+    @visit.patient_id = params[:patient_id]
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to visits, notice: 'Visit was successfully created.' }
-        format.json { render json: @visit, status: :created, location: @visit }
+        format.html{ redirect_to patient_visits_path(@visit.patient_id)}
       else
         format.html { render action: "new" }
         format.json { render json: @visit.errors, status: :unprocessable_entity }
@@ -78,9 +73,8 @@ class VisitsController < ApplicationController
   def destroy
     @visit = Visit.find(params[:id])
     @visit.destroy
-
     respond_to do |format|
-      format.html { redirect_to visits_url }
+      format.html { redirect_to patient_visits_path(params[:patient_id]) }
       format.json { head :no_content }
     end
   end

@@ -67,8 +67,7 @@ module ApplicationHelper
 
   def display_time(time)
     unless time.to_s.blank?
-      t = Time.parse(time.to_s)
-      t.to_s(:display_time)
+      t = Time.parse(time.to_s).asctime
     end
   end
 

@@ -11,10 +11,11 @@ module PatientsHelper
 		output = ""
 		id = patient.get(:id)
 		unless patient.blank?
-			output += link_to("Edit", edit_patient_path(id), :class => 'btn btn-mini').html_safe
-			output += link_to("Delete", patient_path(id), :method => :delete, :confirm => true, :class => 'btn btn-mini').html_safe
-			output += link_to("View Profile", patient_path(id), :class => 'btn btn-mini').html_safe
-			output += link_to("New Visit", new_patient_visit_path(id), :class => 'btn btn-mini').html_safe
+			output += link_to("Edit", edit_patient_path(id), :class => 'btn btn-default').html_safe
+			output += link_to("Delete", patient_path(id), :method => :delete, :confirm => true, :class => 'btn btn-default').html_safe
+			output += link_to("View Profile", patient_path(id), :class => 'btn btn-default').html_safe
+      output += link_to("View Visits", patient_visits_path(id), :class => 'btn btn-default').html_safe
+			output += link_to("New Visit", new_patient_visit_path(id), :class => 'btn btn-default').html_safe
 		end
 		output.html_safe
 	end

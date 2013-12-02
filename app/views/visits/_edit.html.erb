@@ -1,0 +1,7 @@
+<%= render :partial => "shared/form", :locals => {
+  :item => visit_form_output(@visit, @patient, @staffs),
+  :rows => %w(VisitType Staff),
+  :path => edit_patient_visit_path(@patient.id),
+  :title => "<h4>Edit Visit</h4>".html_safe,
+  :method => "PUT"
+} %>

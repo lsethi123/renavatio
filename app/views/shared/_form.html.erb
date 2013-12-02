@@ -1,0 +1,27 @@
+<% item = item rescue nil %>
+<% path = path rescue nil %>
+<% rows = rows rescue nil %>
+<% title = title rescue nil %>
+<% method = method rescue nil %>
+
+<% unless title.blank? %>
+  <%= title %>
+<% end %>
+
+<% unless rows.blank? %>
+  <% header = rows.map{|k| k.to_s.camelcase.split(/(?=[A-Z])/).join(" ") } %>
+<% end %>
+
+<% unless item.blank? %>
+  <%= form_tag path, :method => method.to_sym, :class => "form-horizontal" do %>
+    <% header.each do |attribute| %>
+      <div class="form-group">
+        <label class="form-label col-lg-offset-2 col-sm-10 col-md-10 col-lg-2" for="typelist"><%= attribute %></label>
+        <div class="col-sm-10 col-md-10 col-lg-4">
+          <% table_data = item.get(attribute.underscore.gsub(" ", "_").to_sym, :display) %>
+          <%= translate_table_data(attribute, table_data) %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

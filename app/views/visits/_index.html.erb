@@ -1,0 +1,11 @@
+<%= render :partial => "shared/collections",
+  :locals => {
+    :collection => create_collections(@visits, "generate_new_visit", params[:patient_id]),
+    :columns => ["TypeOf", "ChiefComplaint", "CreatedAt"],
+    :options => "create_visit_options",
+    :options_extra => params[:patient_id]
+  }
+%>
+
+
+<%= render :partial => "shared/javascript_controller_action" %>

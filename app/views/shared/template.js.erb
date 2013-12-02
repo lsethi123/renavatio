@@ -1,5 +1,4 @@
 <% path = @path.blank? ? "#{params[:controller]}/viewports/#{params[:action]}" : @path %>
 <% sidebar_path = @sidebar_path.blank? ? "#{params[:controller]}/sidebar_#{params[:action]}" : @sidebar_path %>
-
 $('.content-space').html("<%= escape_javascript( render :partial => path ) %>" );
 showSidebar("<%= escape_javascript( render :partial => sidebar_path ) %>");
