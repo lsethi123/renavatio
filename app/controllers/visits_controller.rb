@@ -75,7 +75,7 @@ class VisitsController < ApplicationController
     @visit.destroy
     respond_to do |format|
       format.html { redirect_to patient_visits_path(params[:patient_id]) }
-      format.json { head :no_content }
+      format.json
     end
   end
 

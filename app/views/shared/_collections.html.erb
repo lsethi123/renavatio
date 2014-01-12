@@ -28,7 +28,7 @@
 		<tbody>
 			<% unless collection.blank? %>
 				<% collection.each do |item| %>
-					<tr>
+					<tr data-item-id="<%= item.get(:id) %>" data-visit-id="<%= item.get(:visit_id) rescue nil %>">
 					<% display_columns.each do |display_column| %>
 						<td>
 							<% table_data = item.get(display_column.underscore.gsub(" ", "_").to_sym, :display) %>

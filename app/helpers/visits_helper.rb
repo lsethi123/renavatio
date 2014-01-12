@@ -7,7 +7,7 @@ module VisitsHelper
 		unless visit.blank?
       param_hash = {:patient_id => patient_id, :id => id}
 			output += link_to("Edit", edit_patient_visit_path(param_hash), :class => 'btn btn-default').html_safe
-			output += link_to("Delete", patient_visit_path(param_hash), :method => :delete, :confirm => true, :class => 'btn btn-default').html_safe
+			output += link_to("Delete", patient_visit_path(param_hash), :method => :delete, :class => 'btn btn-default delete-visit-btn').html_safe
 		end
 		output.html_safe
 	end
