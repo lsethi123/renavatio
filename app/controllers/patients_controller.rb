@@ -3,7 +3,10 @@ class PatientsController < ApplicationController
   # GET /patients.json
   def index
     @patients = Patient.all
-    render :template => "shared/template"
+    respond_to do |format|
+      format.html
+      format.json {render :json => @patients.to_json }
+    end
   end
 
   # GET /patients/1

@@ -10,3 +10,6 @@ Account.create(organization: 'Hematology and Oncology')
 
 Staff.create(firstname: 'Vincent', lastname: 'Du', email: 'vincentdu101@gmail.com', password: "stateofmind", title: "Transcriber", administrator: true, account_id: 1)
 Staff.create(firstname: 'Katie', lastname: 'Kuo', email: 'katiekuo@gmail.com', password: "cookies", title: "Nurse", administrator: true, account_id: 1)
+
+Patient.create(firstname: "Vincent", lastname: "Du", birthday: "03-13-1991")
+Patient.create(firstname: "Katie", lastname: "Kuo", birthday: "04-04-1990")

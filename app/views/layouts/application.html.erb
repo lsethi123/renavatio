@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="Renavatio">
 <head>
   <title>Renavatio</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="container">
+	<div>
 		<div class="account_section">
 			<% if logged_in? -%>
 				<div id="profile-nav" class="pull-right">Welcome <%= session[:name] %> <%= link_to "Logout", logout_path %></div>

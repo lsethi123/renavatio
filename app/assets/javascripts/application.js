@@ -14,11 +14,15 @@
 //= require jquery_ujs
 //= require chosen-jquery
 //= require js-routes
+//= require angular
+//= require angular-resource
+//= require_tree ../../../app/assets/javascripts/angular/.
 //= require_tree
 //= //require jquery-ui
 //= //require bootstrap
 //= //require transition
 //= //require collapse
+
 
 $(document).ready(function(){
 // 	$('.delete_patient').bind('ajax:before', function(){
